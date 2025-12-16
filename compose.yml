@@ -6,6 +6,8 @@ services:
       - .:/app
     ports:
       - "${WEB_PORT}:3000"
+    environment:
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}
     command: npm run dev
     depends_on:
       - db
