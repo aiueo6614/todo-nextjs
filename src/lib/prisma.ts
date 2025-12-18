@@ -4,13 +4,7 @@ import { PrismaClient } from "@prisma/client";
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
-const adapter = new PrismaMariaDb({
-    host: process.env.DATABASE_HOST,
-    port: Number(process.env.DATABASE_PORT) || 3306,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_NAME,
-});
+const adapter = new PrismaMariaDb(process.env.DATABASE_URL!);
 
 export const prisma = globalForPrisma.prisma || new PrismaClient({ adapter, log: ['query', 'info', 'warn', 'error']});
 

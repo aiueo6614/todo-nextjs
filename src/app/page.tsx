@@ -6,7 +6,7 @@ export default function Home() {
     <main>
       <h1>Todo</h1>
       <TodoForm />
-      {/* <TodoList /> */}
+      <TodoList />
     </main>
   )
 }
