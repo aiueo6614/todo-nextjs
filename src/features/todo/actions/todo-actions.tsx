@@ -10,7 +10,6 @@ export async function addTodo(formData: FormData) {
     if (!title) {
         return;
     }
-
     try {
         await prisma.todo.create({
             data: {
